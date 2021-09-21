@@ -1,0 +1,10 @@
+#event-date {
+  color: #0f5a0f;
+  font-size: 18px;
+}
+
+#countdown {
+  border: 3px double #333;
+  font: 36px courier, monospace;
+  padding: 1rem;
+}
