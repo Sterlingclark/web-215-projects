@@ -22,6 +22,11 @@ console.log("Day: " + BREAKUPDAY);
 /*
 Append a leading 0 to the month number for January through September as those month numbers have a single digit. Log the new number to the console.
 */
+/**
+ * 
+ * @param {Number} n - Month number 
+ * @returns - The month number if less then 10 and add the month number to its self if zero. 
+ */
 function pad(n) {
   return n<10 ? '0'+n : n;
 }
