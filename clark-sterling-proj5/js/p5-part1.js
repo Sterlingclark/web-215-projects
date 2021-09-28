@@ -55,7 +55,7 @@ console.log("Day name: " + fullDayName);
 Use variables you already have to build a string for the breakup date like this:
 Friday, April 10, 1970
 */
-var fullDateString = fullDayName + ", " + fullMonthName + BREAKUPDATE + ", " + BREAKUPYEAR;
+var fullDateString = fullDayName + ", " + fullMonthName + " "+ BREAKUPDATE + ", " + BREAKUPYEAR;
 /*
 Create a <b> element, populate its text with the string above, and place it on the page after the hardcoded <br> tag inside the hardcoded paragraph. If you are cringing because you think the <b> tag is deprecated, read the explanation in Part 2 of this project.
 */
