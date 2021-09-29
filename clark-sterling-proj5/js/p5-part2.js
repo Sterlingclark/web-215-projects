@@ -21,10 +21,7 @@ function dateString(theDate, id) {
   const YEAR = IMPORTANTDATE.getFullYear();
   const DAY = IMPORTANTDATE.getDay();
 
-
-
   var formattedDate = pad(dateNumber);
-  var formattedMonth = pad(mon + 1);
 
   var monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
