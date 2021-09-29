@@ -1,37 +1,54 @@
-function famousDates(mon, date, year) {
-  this.mon = mon;
-  this.date = date;
-  this.year = year;
-  this.padMon = function pad(n) {
-    return n<10 ? '0'+n : n;
-  }
+/**
+ * 
+ * @param {Number} n - Month number 
+ * @returns - The month number if less then 10 and add the month number to its self if zero. 
+ */
+  function pad(n) {
+  return n<10 ? '0'+n : n;
+}
+
+/**
+ * 
+ * @param {string} theDate -the date  
+ * @param {string} id  - the id of the element to attach the string to.
+ */
+
+function dateString(theDate, id) {
+  const IMPORTANTDATE = new Date(theDate);
   
+  var dateNumber = IMPORTANTDATE.getDate();
+  var mon = IMPORTANTDATE.getMonth();
+  const YEAR = IMPORTANTDATE.getFullYear();
+  const DAY = IMPORTANTDATE.getDay();
+
+
+
+  var formattedDate = pad(dateNumber);
+  var formattedMonth = pad(mon + 1);
+
   var monthNames = [
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
   ];
-  var fullMonthName = monthNames[mon + 1];
+  var fullMonthName = monthNames[mon];
 
   var dayNames = [
     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
   ];
-  var fullDayName = (dayNames[date]);
+  var fullDayName = (dayNames[DAY]);
 
-  var fullDateString = fullDayName + ", " + fullMonthName + ", " + date +", " + year;
+  var fullDateString = fullDayName + ", " + fullMonthName + " " + dateNumber +", " + YEAR;
 
   var br = document.createElement("br");
+  document.querySelector(id).appendChild(br);
   var b = document.createElement("b");
+  document.querySelector(id).appendChild(b);
   var time = document.createElement("time");
-  var text = document.createTextNode(fullDateString);
-  time.append(text);
-  b.append(time);
-  br.append(b);
-
-  document.getElementById("beethoven").appendChild(br);
-  
+  time.setAttribute('datetime', YEAR-mon-formattedDate);
+  time.textContent = fullDateString;
+  document.querySelector(id + ' b').appendChild(time);
 }
 
-famousDates(12, 17, 1770);
-famousDates(07, 27, 1940);
-famousDates(01, 02, 1968);
-famousDates(07, 04, 1997);
-
+dateString('Dec 17, 1770', '#beethoven');
+dateString('July 27, 1940', '#bugs');
+dateString('Jan 2, 1968', '#transplant');
+dateString('July 4, 1997', '#mars');
