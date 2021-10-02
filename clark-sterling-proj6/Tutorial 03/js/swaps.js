@@ -23,11 +23,11 @@ const IMAGE0 = 'img/day0.jpg';
 const IMAGE235 = 'img/day235.jpg';
 
 BTNO.addEventListener('click', function() {
-  showImage(IMAGE235);
+  showImage(IMAGE0);
 });
 
-BTNO.addEventListener('click', function() {
-  showImage(IMAGE0);
+BTNO235.addEventListener('click', function() {
+  showImage(IMAGE235);
 });
 /**
  * 
