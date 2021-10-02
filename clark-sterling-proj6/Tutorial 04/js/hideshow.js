@@ -10,19 +10,25 @@ BTNTOGGLE.addEventListener('click', toggleAnswers);
 for(i = 0; i < ANSWERS.length; i++) {
   ANSWERS[i].style.display = 'none';
 }
-
+/**
+ * uses a loop to got through elements to hide them. 
+ */
 function hideAnswers() {
   for(i = 0; i < ANSWERS.length; i++) {
     ANSWERS[i].style.display = 'none';
   }
 }
-
+/**
+ * uses a loop to got through elements to show them. 
+ */
 function showAnswers() {
   for(i = 0; i < ANSWERS.length; i++) {
     ANSWERS[i].style.display = 'block';
   }
 }
-
+/**
+ * uses a loop to got through elements to toggle them on and off. 
+ */
 function toggleAnswers() {
   for(i = 0; i < ANSWERS.length; i++) {
     if (ANSWERS[i].style.display == 'block') {
