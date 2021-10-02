@@ -5,7 +5,7 @@ function addNestedList(){
   NEWLI.textContent = 'Valid';
   
   NEWUL.appendChild(NEWLI);
-  console.log(NEWUL.outerHTML);
+  SPECIAL.insertAdjacentElement('beforeend', NEWUL);
 }
 
 addNestedList();
