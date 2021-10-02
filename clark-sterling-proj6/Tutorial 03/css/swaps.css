@@ -1,0 +1,14 @@
+body {
+  padding-bottom: 2rem;
+}
+
+div {
+  padding: 2rem;
+}
+
+span {
+  border: 1px solid #333;
+  cursor: pointer;
+  display: inline-block;
+  padding: .5rem;
+}

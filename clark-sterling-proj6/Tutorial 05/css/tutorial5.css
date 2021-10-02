@@ -1,0 +1,9 @@
+div {
+  padding: 2rem;
+}
+
+span {
+  display: inline-block;
+  border: 1px solid #333;
+  padding: .5rem;
+}
