@@ -1,13 +1,15 @@
 const SLIDER = document.querySelector('input');
 const PARA = document.querySelector('p');
 const CURRENTSIZE = document.createElement('div');
-const DEFSIZE = SLIDER.getAttribute('value') + 'px';
+const DEFSIZE = SLIDER.getAttribute('value');
+
 CURRENTSIZE.textContent = DEFSIZE;
+CURRENTSIZE.style.cssText = 'position: relative; bottom: 52px;';
 PARA.insertAdjacentElement('beforebegin', CURRENTSIZE);
 document.querySelector('body').appendChild(CURRENTSIZE);
 SLIDER.addEventListener('mousemove', function(){
-  let textSize = this.value;
-  PARA.style.fontSize = textSize + 'px';
+  let textSize = this.value + 'px';
+  PARA.style.fontSize = textSize;
   CURRENTSIZE.textContent = textSize;
 });
 

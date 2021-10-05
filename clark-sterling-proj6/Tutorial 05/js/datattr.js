@@ -14,7 +14,7 @@ function showMatches() {
     if(CATEGORY == itemCoolness) {
       STUFF[i].style.backgroundColor = '#ff0';
     } else {
-      STUFF[i].style.backgroundColor = '#fff';
-    } // end if-else
-  } // end for loop
-} // end function
+      STUFF[i].style.backgroundColor = 'fff';
+    } // end for if/else
+  } // end of for loop
+} // end of function
