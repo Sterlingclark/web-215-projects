@@ -1,10 +1,9 @@
 const SLIDER = document.querySelector('input');
 const PARA = document.querySelector('p');
 const CURRENTSIZE = document.createElement('div');
-const DEFSIZE = SLIDER.getAttribute('value');
+const DEFSIZE = SLIDER.getAttribute('value') + 'px';
 
 CURRENTSIZE.textContent = DEFSIZE;
-CURRENTSIZE.style.cssText = 'position: relative; bottom: 52px;';
 PARA.insertAdjacentElement('beforebegin', CURRENTSIZE);
 document.querySelector('body').appendChild(CURRENTSIZE);
 SLIDER.addEventListener('mousemove', function(){
