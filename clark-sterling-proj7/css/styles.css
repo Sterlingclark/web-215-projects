@@ -1,0 +1,57 @@
+* {
+  font-family: verdana, arial, sans-serif;
+}
+
+cite {
+  font-style: normal;
+}
+
+h2 i {
+  font-size: 1.15rem;
+}
+
+#gallery {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 75px 400px;
+  grid-template-rows: auto auto auto auto;
+  max-width: 700px;
+}
+
+#thumbs {
+  text-align: right;
+}
+
+#thumb-roundness-control,
+#large-roundness-control,
+#description-control {
+  grid-column: 2/3;
+  padding: 1rem;
+  text-align: center;
+}
+
+#thumb-roundness-control > div,
+#large-roundness-control > div {
+  display: flex;
+  justify-content: center;
+}
+
+#slider-thumb,
+#slider-large {
+  cursor: pointer;
+  font-size: .75rem;
+}
+
+#description-control span {
+  background-color: #333;
+  border: 3px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  padding: .5rem;
+}
+
+#descriptions {
+  max-width: 485px;
+  padding: 1rem;
+}
