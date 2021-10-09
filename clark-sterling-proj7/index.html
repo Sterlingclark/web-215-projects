@@ -26,28 +26,32 @@
     Link each thumbnail to the matching large version of the image.
 
     Inside the #full-size DIV, add the full size image of the demon.
-
     Inside the #thumb-roundness-control, add a child DIV with no ID. Inside that child DIV, add a LABEL with the text 'Thumbnail roundness:' and an INPUT tag with an ID of 'slider-thumb'. Make the input tag a range slider with minimum and default values of 0 and a maximum value of 50.
-
     Inside the #large-roundness-control, add a child DIV with no ID. Inside that child DIV, add a LABEL with the text 'Large image roundness:' and an INPUT tag with an ID of 'slider-large'. Make the input tag a range slider with minimum and default values of 0 and a maximum value of 50.
-
     Inside the #description-control, create a SPAN with the text 'Hide Descriptions'
     -->
     <section id="gallery">
       <div id="thumbs">
-
+        <a href="img/japanese-demon.jpg" target="_blank"><img src="img/japanese-demon-thumb.jpg" alt="Japanese Good Luck Demon"></a>
+        <a href="img/fluffy.jpg" target="_blank"><img src="img/fluffy-thumb.jpg" alt="Fluffy teddybear"></a>
+        <a href="img/praying-mantis.jpg" target="_blank"><img src="img/praying-mantis-thumb.jpg" alt="Praying Mantis"></a>
+        <a href="img/salmon.jpg" target="_blank"><img src="img/salmon-thumb.jpg" alt="Salmon"></a>
       </div>
       <div id="full-size">
-
+        <img src="img/japanese-demon.jpg" alt="Japanese Good Luck Demon">
       </div>
       <div id="thumb-roundness-control">
-
+        <div>
+          <label>Thumbnail roundness:</label>
+          <input id="slider-thumb" type="range" min="0" max="50" value="0" autocomplete="off">
+        </div>
       </div>
       <div id="large-roundness-control">
-
+        <label>Large image roundness:</label>
+          <input id="slider-large" type="range" min="0" max="50" value="0" autocomplete="off">
       </div>
       <div id="description-control">
-        
+        <span>Hide Descriptions</span>
       </div>
     </section>
     <!--

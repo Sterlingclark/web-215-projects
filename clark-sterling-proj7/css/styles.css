@@ -25,6 +25,7 @@ h2 i {
 #thumb-roundness-control,
 #large-roundness-control,
 #description-control {
+  display: none;
   grid-column: 2/3;
   padding: 1rem;
   text-align: center;
