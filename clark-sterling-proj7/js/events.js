@@ -13,13 +13,13 @@ cancelLinks('a');
 Event Function Calls
 *******************************************/
 swapImage('#thumbs > a', '#full-size > img', 'mouseover');
-
-
+roundCorners('thumb-roundness-control', '#thumbs > a');
+roundCorners('large-roundness-control', '#full-size > img');
 toggleElement('#discription-control > span', '#descriptions', 'Show Descriptions', 'Hide Descriptions');
 
 /*******************************************
 Initialize Page Functions
-*******************************************/
+ *******************************************/
 /**
  * 
  * @param {String} tag - pass in the anchor tag to prevent them from opening. 
@@ -52,8 +52,13 @@ function hideElements(elem) {
 
 /*******************************************
 Event Functions
-*******************************************/
-
+ *******************************************/
+/**
+ * 
+ * @param {String} thumbNail - the thumbnail anchor tag
+ * @param {String} large  - the full size image to swap
+ * @param {String} event - the event you want to do
+ */
 function swapImage(thumbNail, large, event) {
   let thumbs = document.querySelectorAll(thumbNail);
   let fullSize = document.querySelector(large);
@@ -65,22 +70,29 @@ function swapImage(thumbNail, large, event) {
   }
 }
 
+swapDescriptions('#thumbs > a', 'mouseover', '#descriptions > div',  'data-descriptionId');
+
 function swapDescriptions(thumbNail, event, container, attribute) {
   hideElements('#descriptions > div');
   let thumbs = document.querySelectorAll(thumbNail);
-  let match = document.querySelector();
-  let swap = document.querySelector(container);
+  let con = document.querySelectorAll(container);
   for (var i = 0; i < thumbs.length; i++) {
-    thumbs[i].addEventListener(event, function() {
-      
-      
+    thumbs[i].addEventListener(event, function(e) {
+      for (var i = 0; i < con.length; i++) {
+        let data = con[i].getAttribute(attribute);
+        if (data == e.target.getAttribute(attribute)) {
+          showElement('','');
+        } else {
+          con[i].style.display = 'none';
+        }
+      }
     });
   }
 }
 
 function roundCorners(slider, roundElem) {
-
-}
+  
+} 
 
 function toggleElement(bttn, des,) {
   /*
