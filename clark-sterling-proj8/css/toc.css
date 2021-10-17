@@ -1,0 +1,13 @@
+/*
+Padding adds a ton of white space to bottom of page so the final section can display at the top of the browser window
+*/
+body {
+  font-family: verdana, helvetica, sans-serif;
+  padding: 2rem 2rem 100rem;
+}
+
+header,
+section,
+div {
+  margin-bottom: 5rem;
+}

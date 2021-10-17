@@ -73,7 +73,7 @@ function swapImage(thumbNail, large, event) {
 swapDescriptions('#thumbs > a', 'mouseover', '#descriptions > div',  'data-descriptionId');
 
 function swapDescriptions(thumbNail, event, container, attribute) {
-  hideElements('#descriptions > div');
+  // hideElements('#descriptions > div');
   let thumbs = document.querySelectorAll(thumbNail);
   let con = document.querySelectorAll(container);
   for (var i = 0; i < thumbs.length; i++) {
@@ -81,7 +81,7 @@ function swapDescriptions(thumbNail, event, container, attribute) {
       for (var i = 0; i < con.length; i++) {
         let data = con[i].getAttribute(attribute);
         if (data == e.target.getAttribute(attribute)) {
-          showElement('','');
+          con[i].style.display = 'block';
         } else {
           con[i].style.display = 'none';
         }
@@ -92,6 +92,10 @@ function swapDescriptions(thumbNail, event, container, attribute) {
 
 function roundCorners(slider, roundElem) {
   
+  var span = document.createElement('span');
+  span.textContent = '00';
+  console.log(span)
+
 } 
 
 function toggleElement(bttn, des,) {
