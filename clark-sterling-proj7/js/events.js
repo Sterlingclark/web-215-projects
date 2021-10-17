@@ -1,6 +1,6 @@
 /*******************************************
 Page Initialization Function Calls
-*******************************************/
+ *******************************************/
 showElement('#thumb-roundness-control', 'block');
 showElement('#large-roundness-control', 'block');
 showElement('#description-control', 'block');
@@ -11,11 +11,12 @@ cancelLinks('a');
 
 /*******************************************
 Event Function Calls
-*******************************************/
+ *******************************************/
 swapImage('#thumbs > a', '#full-size > img', 'mouseover');
-roundCorners('thumb-roundness-control', '#thumbs > a');
-roundCorners('large-roundness-control', '#full-size > img');
-toggleElement('#discription-control > span', '#descriptions', 'Show Descriptions', 'Hide Descriptions');
+swapDescriptions('#thumbs > a', 'mouseover', '#descriptions > div',  'data-descriptionId');
+roundCorners('#thumb-roundness-control input', '#gallery a');
+roundCorners('#large-roundness-control input', '#full-size img');
+toggleElement('#description-control span', '#descriptions', 'Show Descriptions', 'Hide Descriptions');
 
 /*******************************************
 Initialize Page Functions
@@ -70,8 +71,13 @@ function swapImage(thumbNail, large, event) {
   }
 }
 
-swapDescriptions('#thumbs > a', 'mouseover', '#descriptions > div',  'data-descriptionId');
-
+/**
+ * 
+ * @param {String} thumbNail -anchor tag of the thumbnail img
+ * @param {String} event - the event you want to happen
+ * @param {String} container - the container of the discription text
+ * @param {String} attribute - the attribute in the html that is passed
+ */
 function swapDescriptions(thumbNail, event, container, attribute) {
   // hideElements('#descriptions > div');
   let thumbs = document.querySelectorAll(thumbNail);
@@ -90,22 +96,52 @@ function swapDescriptions(thumbNail, event, container, attribute) {
   }
 }
 
-function roundCorners(slider, roundElem) {
-  
-  var span = document.createElement('span');
-  span.textContent = '00';
-  console.log(span)
+function roundCorners(slider, target) {
+  if(!target.isArray) {
+    var targetElm = document.querySelectorAll(target);
+  } else {
+    var targetElm = document.querySelector(target);
+  }
 
-} 
+  let newSlider = document.querySelector(slider);
+  let span = document.createElement('span');
+  newSlider.insertAdjacentElement('afterend', span);
 
-function toggleElement(bttn, des,) {
-  /*
-  set visibility flag = true
-  get toggle button 
-  get the big box of all descriptions 
-  add click listener to the toggle button
-    if big box is visible, hide it and change the buttons text
-    if the big box is hidden, show it and change the buttons text
-  */
+  newSlider.addEventListener('mousemove', function() {
+    if(this.value < 9) {
+      span.textContent = '0' + this.value + '%';
+    } else {
+      span.textContent = this.value + '%';
+    }
+    targetElm.forEach(el => el.style.borderRadius = this.value + 'px');
+  });
+}
+
+
+
+
+
+/**
+ * 
+ * @param {String} bttn - the element around the button
+ * @param {String} des - the descriptions
+ * @param {String} show - the value passed to show the descriptions when clicked
+ * @param {String} hide - the value passed to hide the descriptions when clicked
+ */
+function toggleElement(bttn, des, show, hide) {
+  var toggled = false;
+  var button = document.querySelector(bttn);
+  var target = document.querySelector(des);
+
+  button.addEventListener('click', function() {
+    toggled = !toggled;
+    if(toggled == true) {
+      button.textContent = show;
+      target.style.display = 'none';
+    } else {
+      button.textContent = hide;
+      target.style.display = 'block';
+    }
+  });
 }
 
