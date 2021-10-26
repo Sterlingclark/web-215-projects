@@ -2,9 +2,9 @@ makePyramid(10, ':');
 makePyramid(3, '*');
 makePyramid(5, '^');
 
-makeMultiCharPyramid(5, '^-^');
-makeMultiCharPyramid(8, 'qwert');
-makeMultiCharPyramid(10, '1 2 3');
+makeMultiCharPyramid(5, "^~^");
+makeMultiCharPyramid(8, "qwert");
+makeMultiCharPyramid(10, "1 2 3");
 
 /**
  * 
@@ -39,11 +39,11 @@ function makePyramid(rows, character) {
       const DIV = document.createElement("div");
   
       for(c = 1; c <= (rows - i); c++){
-        DIV.innerHTML += "&nbsp;" + "&nbsp;";
+        DIV.innerHTML += "&nbsp;".repeat(characters.length);
       }
   
       for(j = 1; j <= i; j++) {
-        DIV.innerHTML += "&nbsp;" + characters;
+        DIV.innerHTML += "&nbsp;".repeat(characters.length) + characters;
       }
   
       document.querySelector("body").appendChild(DIV);
