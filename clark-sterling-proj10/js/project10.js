@@ -1,5 +1,7 @@
 createEmail(); 
-
+/**
+ * -This function is used to create and display email address within the HTML
+ */
 function createEmail() {
   const EMAILS = document.querySelectorAll('.email');
   EMAILS.forEach(function(email, index){
@@ -14,9 +16,6 @@ function createEmail() {
   });
 }
 
-
-
-
 let foods = [
   'apple',
   'banana',
@@ -26,7 +25,6 @@ let foods = [
 // for(i = 0; i < foods.length; i++){
 //   console.log(foods[i]);
 // }
-
 
 
 // foods.forEach(showMembers);
