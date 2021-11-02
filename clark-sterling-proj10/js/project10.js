@@ -4,7 +4,7 @@ createEmail();
  */
 function createEmail() {
   const EMAILS = document.querySelectorAll('.email');
-  EMAILS.forEach(function(email, index){
+  EMAILS.forEach(email => {
     const USER = email.dataset.user;
     const DOMAIN = email.dataset.domain;
     const A = document.createElement('a');
