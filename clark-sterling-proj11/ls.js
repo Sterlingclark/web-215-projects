@@ -8,8 +8,9 @@ init();
  *
  */
 
-function init(){
-
+function init() {
+  const NOTME = document.querySelector('#not-me');
+  NOTME.style.display = 'none';
 }
 
 /********************
@@ -27,8 +28,15 @@ setName();
  *
  */
 
-function getName(){
+function getName() {
+  let local = localStorage.getItem('name');
+  let session = sessionStorage.getItem('name');
 
+  if (local) {
+    document.querySelector('h1').textContent = local;
+  } else {
+    document.querySelector('h1').textContent = session;
+  } 
 }
 
 /**
@@ -36,7 +44,8 @@ function getName(){
  *
  */
 
-function clearName(){
+function clearName() {
+  let removeLocal = localStorage.removeItem('name');
 
 }
 
@@ -47,6 +56,26 @@ function clearName(){
  *
  */
 
-function setName(){
+function setName() {
+  const REM = document.querySelector('#remember');
+  const SAVE = document.querySelector('form');
+  let name = document.querySelector('#name').value;
+  let chosenStorage = '';
 
+  console.log(name);
+
+  REM.addEventListener('change', (e) => {
+    e.preventDefault();
+    if (this.checked) {
+      chosenStorage = 'localStorage';
+    }
+  });
+
+  SAVE.addEventListener('submit', () => {
+    if (chosenStorage == 'localStorage') {
+      localStorage.setItem('name', name);
+    } else {
+      sessionStorage.setItem('name', name);
+    }
+  });
 }
