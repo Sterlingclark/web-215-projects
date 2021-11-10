@@ -1,0 +1,33 @@
+#modalOuterBox {
+  background-color: rgba(0, 0, 0, .5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#modalContent {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-top: 10px solid #333;
+  box-shadow: 0 0 5px #000;
+  margin: 2rem auto auto;
+  padding: 1rem;
+  position: relative;
+  width: 80%;
+}
+
+#close {
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#close:hover {
+  color: #f00;
+  cursor: pointer;
+  transform: rotate(90deg);
+  transition: all .25s;
+}
