@@ -1,6 +1,9 @@
 pageBottom();
 window.addEventListener('scroll', pageBottom);
-
+/**
+ * - This function is used to read if the botton of the page has been met then get set the new content at the bottom
+ * @returns 
+ */
 function pageBottom() {
   const BODY = document.querySelector('body');
   let bodyHeight = BODY.offsetHeight;
@@ -27,7 +30,11 @@ function pageBottom() {
     }
   }
 }
-
+/**
+ * - This function is used to get new content from a database and creates a new parapraph for it
+ * @param {Int} paragraphIndex - Index of the next paragraph
+ * @returns - New paragraph or an empty string
+ */
 function getNewContent(paragraphIndex) {
   const PARA = document.createElement('p');
   PARA.setAttribute('data-id', paragraphIndex);
