@@ -4,28 +4,30 @@ modal();
  */
 function modal() {
   const CLOSE = document.querySelector('#close');
-  BOXOUT = document.querySelector('#modalOuterBox');
-  BOXIN = document.querySelector('#modalContent');
+  const BOXOUT = document.querySelector('#modalOuterBox');
+  const BOXIN = document.querySelector('#modalContent');
   const BTN = document.querySelector('button');
   const A = document.querySelector('a');
 
 CLOSE.addEventListener('click', ()=> modalOuterBox.style.display = 'none');
 
-BOXOUT.addEventListener('click', (e)=>{
+BOXOUT.addEventListener('click', function(e) {
   console.log(e);
   if(e.target.matches('#modalOuterBox')) {
     modalOuterBox.style.display = 'none';
   }
 });
 
-BTN.addEventListener('click', ()=>{
+BTN.addEventListener('click', function() {
   const btnText = this.textContent;
+  console.log(btnText);
   showModal(btnText);
 });
 
-A.addEventListener('click', (e)=>{
+A.addEventListener('click', function(e) {
   e.preventDefault();
   const linkText = this.textContent;
+  console.log(linkText);
   showModal(linkText);
 });
 
@@ -35,6 +37,8 @@ A.addEventListener('click', (e)=>{
  * @param {String} modalText 
  */
 function showModal(modalText) {
+  const BOXOUT = document.querySelector('#modalOuterBox');
+  const BOXIN = document.querySelector('#modalContent');
   const oldData = document.querySelector('[data-desc=content]')
   oldData ? oldData.remove() : null;
   const PARA = document.createElement('p');
