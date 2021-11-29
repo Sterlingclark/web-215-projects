@@ -20,15 +20,18 @@ Tip: you'll need to loop through the JSON results to display ten of them
 // Figure out which category the user selected and then pass their choice along to the createRequest function
 function chooseCategory() {
   const RADIOBTN = document.querySelectorAll('input');
+  var endPoint_URL = "https://karljoke.herokuapp.com/jokes/random";
   
   for(i=0; i < RADIOBTN.length; i++) {
-    if(RADIOBTN.values == 'general') {
-      console.log('general');
+    if(RADIOBTN.value === 'general') {
+      RADIOBTN.addEventListener('click', function() {
+        console.log(RADIOBTN);
+      });
     } else {
-      console.log(RADIOBTN);
+      
     }
   }
-  // createRequest(url);
+  createRequest(endPoint_URL);
   
 /*
   grab all radio buttons on page
@@ -51,7 +54,7 @@ function createRequest(url) {
 
 
 // Define what happens if the request is successful or if it fails. Call the updateUISuccess function if successful and call the updateUIError function is it fails
-function responseMethod() {
+function responseMethod(httpRequest) {
   if (httpRequest.readyState === 4) {
     if (httpRequest.status === 200) {
       updateUISuccess(httpRequest.responseText);
@@ -63,7 +66,7 @@ function responseMethod() {
 
 // Work with the data returned by the server and display the jokes on the page
 function updateUISuccess(data) {
-  console.log(data);
+  
 /*
   grab the element containing the jokes 
   if it exists, delete it(how do you delete an element from the DOM n JS?)
@@ -72,5 +75,5 @@ function updateUISuccess(data) {
 
 // Display a human-readable user-friendly error message on the page if the request failed.
 function updateUIError(error) {
-  console.log(error);
+  
 }
