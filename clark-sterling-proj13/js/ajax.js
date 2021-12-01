@@ -1,47 +1,23 @@
-/*
-REMEMBER TO LINK THIS FILE TO YOUR HTML!
-
-Use the free API (no key needed) at https://github.com/15Dkatz/official_joke_api
-HOWEVER - that server went down some time ago! A replacement server/api is available at:
-https://karljoke.herokuapp.com
-Other than a different URL, the API is the same!
- - let users choose between two categories of jokes: general or programming
- - display 10 jokes in a usable/readable format
- - number each joke (1-10)
-  - Headings/paragraphs, summary/details, ordered list, ... It's up to you!
- 
-Use a standard XHR request. Do not use fetch().
- 
-Tip: you'll need to loop through the JSON results to display ten of them
-------------------
-*/
-
-
 // Figure out which category the user selected and then pass their choice along to the createRequest function
 function chooseCategory() {
-  const RADIOBTN = document.querySelectorAll('input');
-  var endPoint_URL = "https://karljoke.herokuapp.com/jokes/random";
+  const RADIOBTNS = document.querySelectorAll('input');
+  var endPoint_URL;
   
-  for(i=0; i < RADIOBTN.length; i++) {
-    if(RADIOBTN.value === 'general') {
-      RADIOBTN.addEventListener('click', function() {
-        console.log(RADIOBTN);
-      });
-    } else {
-      
-    }
+  for(i=0; i < RADIOBTNS.length; i++) {
+    RADIOBTNS.forEach(function(button) {
+      button.addEventListener('click', (e) =>{
+        if(e.target.value === 'general') {
+          endPoint_URL = 'https://karljoke.herokuapp.com/jokes/general/ten';
+          createRequest(endPoint_URL);
+        } else{
+          endPoint_URL = 'https://karljoke.herokuapp.com/jokes/programming/ten';
+          createRequest(endPoint_URL);
+        }
+      })
+    });
   }
-  createRequest(endPoint_URL);
-  
-/*
-  grab all radio buttons on page
-  loop them, adding a listener to each to see if clicked.
-  if clicked, which one is it? 
-  construct the endpoint URL and store it in a var named endPoint_URL
-  create and send the request:
-  createReques(endPoint_URL);  
-*/
 }
+
 chooseCategory();
 
 // Create the XHR request and call the responseMethod function
@@ -66,6 +42,11 @@ function responseMethod(httpRequest) {
 
 // Work with the data returned by the server and display the jokes on the page
 function updateUISuccess(data) {
+  const parsedData = JSON.parse(data);
+  const HR = document.querySelector('hr');
+  const DIV = document.createElement('div');
+  console.log(parsedData);
+  // let joke = parsedData.;
   
 /*
   grab the element containing the jokes 
@@ -75,5 +56,7 @@ function updateUISuccess(data) {
 
 // Display a human-readable user-friendly error message on the page if the request failed.
 function updateUIError(error) {
-  
+  const H1 = document.createElement('h1');
+  H1.textContent = "Unable to get data Request failed!";
+  return H1;
 }
