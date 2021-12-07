@@ -1,9 +1,9 @@
+chooseCategory();
 // Figure out which category the user selected and then pass their choice along to the createRequest function
 function chooseCategory() {
   const RADIOBTNS = document.querySelectorAll('input');
   var endPoint_URL;
   
-  for(i=0; i < RADIOBTNS.length; i++) {
     RADIOBTNS.forEach(function(button) {
       button.addEventListener('click', (e) =>{
         if(e.target.value === 'general') {
@@ -15,10 +15,9 @@ function chooseCategory() {
         }
       })
     });
-  }
+
 }
 
-chooseCategory();
 
 // Create the XHR request and call the responseMethod function
 function createRequest(url) {
@@ -43,11 +42,23 @@ function responseMethod(httpRequest) {
 // Work with the data returned by the server and display the jokes on the page
 function updateUISuccess(data) {
   const parsedData = JSON.parse(data);
-  const HR = document.querySelector('hr');
-  const DIV = document.createElement('div');
-  console.log(parsedData);
-  // let joke = parsedData.;
   
+  for(var i = 0, len = parsedData.length; i < len; i++) {
+    const DIV = document.createElement('div');
+    const P1 = document.createElement('p');
+    const P2 = document.createElement('p');
+    const HR = document.querySelector('hr');
+    var setup = parsedData[i].setup;
+    var punchLine = parsedData[i].punchline;
+
+    P1.textContent = setup;
+    P2.textContent = punchLine;
+    P1.appendChild(P2);
+    DIV.appendChild(P1);
+    HR.append(DIV);
+  }
+
+
 /*
   grab the element containing the jokes 
   if it exists, delete it(how do you delete an element from the DOM n JS?)
